@@ -34,6 +34,7 @@ export const withSentry = (handler: NextApiHandler): WrappedNextApiHandler => {
       }
       throw e;
     } finally {
+      logger.log('flushing...');
       await flush(2000);
     }
   };
